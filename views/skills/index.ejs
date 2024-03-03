@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>skills</title>
-</head>
-<body>
+<%- include('../partials/header') %>
+
     <h1>My Skills</h1>
     <ul>
-    
         <% skills.forEach(function(skill){ %>
             <li>
+                <form action="/skills/<%= skill.id %>?_method=DELETE"
+                    method="POST" class="delete-form">
+                   <button type="submit">X</button>
+                 </form>
                 <a href="/skills/<%= skill.id %>"><%= skill.skill %></a>
             </li>
         <% }); %>
     </ul>
-</body>
-</html>
+    <a href="/skills/new">Add a Skill</a>
+
+
+<%- include('../partials/footer') %>
